@@ -450,7 +450,7 @@ def readAudioFile(filename, videoWorker):
         raw_audio = in_pipe.stdout.read(88200*4)
         if len(raw_audio) == 0:
             break
-        audio_array = numpy.fromstring(raw_audio, dtype="int16")
+        audio_array = numpy.frombuffer(raw_audio, dtype="int16")
         completeAudioArray = numpy.append(completeAudioArray, audio_array)
 
         percent = int(100*(progress/duration))
